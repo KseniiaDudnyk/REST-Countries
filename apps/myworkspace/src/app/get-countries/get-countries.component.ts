@@ -1,28 +1,18 @@
-import { Component } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Country } from '../countries.interface';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoadCountries, FetchSucces } from '../app.actions';
-
+import { Country } from '../countries.interface';
 
 @Component({
   selector: 'myworkspace-get-countries',
   templateUrl: './get-countries.component.html',
   styleUrls: ['./get-countries.component.css']
 })
-export class GetCountriesComponent {
+export class GetCountriesComponent implements OnInit {
   countries$: Observable<Country[]>;
 
-  constructor(private store: Store<{ countries: Country[]>}) {
-  this.countries$ = store.pipe(select(countries);)
-}
+  constructor() { }
 
-loadCountries() {
-  this.store.dispatch(new LoadCountries());
-}
-
-fetchSucces() {
-  this.store.dispatch(new FetchSucces());
-}
+  ngOnInit() {
+  }
 
 }

@@ -11,6 +11,6 @@ export class CountriesService {
   constructor(private http: HttpClient) {  }
 
   getAll(){
-    return this.http.get<Country[]>('https://restcountries.eu/rest/v2/all')
+    return this.http.get<Country[]>('https://restcountries.eu/rest/v2/all');
   }
 }
