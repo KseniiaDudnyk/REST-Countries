@@ -1,12 +1,12 @@
 import { Action } from '@ngrx/store';
 
 export enum ActionTypes {
-  Init = '[App Component] Init',
-  FetchSucces = '[App Component] FetchSucces',
+  LoadCountries = '[Get Countries] LoadCountries',
+  FetchSucces = '[Get Countries] FetchSucces',
 }
 
-export class Init implements Action {
-  readonly type = ActionTypes.Init;
+export class LoadCountries implements Action {
+  readonly type = ActionTypes.LoadCountries;
 }
 
 export class FetchSucces implements Action {

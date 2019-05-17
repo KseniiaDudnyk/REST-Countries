@@ -4,16 +4,20 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 
 import { StoreModule } from '@ngrx/store';
-import { getData } from './app.reducer';
-import { GetDataComponent } from './get-data/get-data.component';
+import { EffectsModule } from '@ngrx/effects';
+import { CountriesEffects } from 'apps/myworkspace/src/app/get-countries/countries.effects';
+import { getCountries } from './app.reducer';
+import { GetCountriesComponent } from './get-countries/get-countries.component';
 
 @NgModule({
-  declarations: [AppComponent, GetDataComponent],
+  declarations: [AppComponent, GetCountriesComponent],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ data: getData })
+    StoreModule.forRoot({ countries: getCountries }),
+    EffectsModule.forRoot([CountriesEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}

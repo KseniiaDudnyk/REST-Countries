@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetDataComponent } from './get-data.component';
+import { GetCountriesComponent } from './get-countries.component';
 
-describe('GetDataComponent', () => {
-  let component: GetDataComponent;
-  let fixture: ComponentFixture<GetDataComponent>;
+describe('GetCountriesComponent', () => {
+  let component: GetCountriesComponent;
+  let fixture: ComponentFixture<GetCountriesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GetDataComponent ]
+      declarations: [ GetCountriesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetDataComponent);
+    fixture = TestBed.createComponent(GetCountriesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
