@@ -1,6 +1,6 @@
-import { Action } from '@ngrx/store';
-import { ActionTypes } from './app.actions';
-
-export function getData(state = initialState, action: Action) {
-
-}
+// import { Action } from '@ngrx/store';
+// import { ActionTypes } from './app.actions';
+//
+// export function getData, action: Action) {
+//
+// }
