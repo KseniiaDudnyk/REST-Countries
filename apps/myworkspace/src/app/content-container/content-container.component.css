@@ -1,0 +1,9 @@
+.body {
+  background-image: url("images/picture.jpg");
+  margin: 0;
+  padding: 15px 35px;
+}
+
+.letter-style {
+  font-size: 40px;
+}

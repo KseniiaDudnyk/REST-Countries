@@ -1,0 +1,17 @@
+<div class="body">
+  <ng-container *ngFor="let countryInfo of countryInfoList$ | async">
+    <div class="letter-style">
+      {{ countryInfo.letter }}
+    </div>
+
+      <ng-container *ngFor="let country of countryInfo.countyList">
+
+        <app-country-button [country]="country">
+
+        </app-country-button>
+
+      </ng-container>
+
+  </ng-container>
+
+</div>
