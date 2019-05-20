@@ -34,3 +34,5 @@ export function appReducer(
   }
   return state;
 }
+
+export const getAllApp = (state: AppState) => state.list;

@@ -13,12 +13,12 @@ export class LoadApp implements Action {
 
 export class AppLoadError implements Action {
   readonly type = AppActionTypes.AppLoadError;
-  constructor(public payload: any) {}
+  constructor(public payload: any) { }
 }
 
 export class AppLoaded implements Action {
   readonly type = AppActionTypes.AppLoaded;
-  constructor(public payload: Country[]) {}
+  constructor(public payload: Country[]) { }
 }
 
 export type AppAction = LoadApp | AppLoaded | AppLoadError;

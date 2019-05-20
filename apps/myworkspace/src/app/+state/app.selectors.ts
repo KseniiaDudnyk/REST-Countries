@@ -1,13 +1,16 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { APP_FEATURE_KEY, AppState } from './app.reducer';
 
+import * as fromRoot from 'apps/myworkspace/src/app/+state/app.reducer';
+
 // Lookup the 'App' feature state managed by NgRx
-const getAppState = createFeatureSelector<AppState>(APP_FEATURE_KEY);
+const getAppState = createFeatureSelector<fromRoot.AppState>(APP_FEATURE_KEY);
 
 const getLoaded = createSelector(
   getAppState,
   (state: AppState) => state.loaded
 );
+
 const getError = createSelector(
   getAppState,
   (state: AppState) => state.error
@@ -20,10 +23,12 @@ const getAllApp = createSelector(
     return isLoaded ? state.list : [];
   }
 );
+
 const getSelectedId = createSelector(
   getAppState,
   (state: AppState) => state.selectedId
 );
+
 const getSelectedApp = createSelector(
   getAllApp,
   getSelectedId,

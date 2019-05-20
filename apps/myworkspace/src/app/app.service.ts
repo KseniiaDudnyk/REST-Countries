@@ -6,7 +6,7 @@ import { Country } from './countries.interface';
   providedIn: 'root'
 })
 
-export class CountriesService {
+export class AppService {
 
   constructor(private http: HttpClient) {  }
 

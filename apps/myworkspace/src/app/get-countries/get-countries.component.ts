@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from '../countries.interface';
+import { Store, select } from '@ngrx/store';
+
+import { AppState } from '../+state/app.reducer';
+import { appQuery } from '../+state/app.selectors';
 
 @Component({
   selector: 'myworkspace-get-countries',
@@ -10,9 +14,11 @@ import { Country } from '../countries.interface';
 export class GetCountriesComponent implements OnInit {
   countries$: Observable<Country[]>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+  }
 
   ngOnInit() {
+    this.countries$ = this.store.pipe(select(appQuery.getAllApp));
   }
 
 }

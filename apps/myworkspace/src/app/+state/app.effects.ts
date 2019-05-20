@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { DataPersistence } from '@nrwl/nx';
-import { CountriesService } from '../countries.service';
+import { AppService } from '../app.service';
 import { switchMap, map } from 'rxjs/operators';
 
 import { AppPartialState } from './app.reducer';
@@ -29,7 +28,7 @@ export class AppEffects {
 
   @Effect() loadApp$ = this.actions$.pipe(
     ofType(AppActionTypes.LoadApp),
-    switchMap(() => this.countriesService.getAll()
+    switchMap(() => this.appService.getAll()
       .pipe(
         map((countryList) => new AppLoaded(countryList)
         )
@@ -40,6 +39,6 @@ export class AppEffects {
   constructor(
     private actions$: Actions,
     // private dataPersistence: DataPersistence<AppPartialState>,
-    private countriesService: CountriesService
-  ) {}
+    private appService: AppService
+  ) { }
 }
