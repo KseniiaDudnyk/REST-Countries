@@ -1,5 +1,6 @@
 import { BrowserModule, } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'apps/myworkspace/src/app/app-routing/app-routing.module';
@@ -60,7 +61,7 @@ const routes: Routes = [
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent],
   entryComponents: [CountryDialogComponent]
 })

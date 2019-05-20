@@ -9,9 +9,4 @@ import { LoadApp } from './+state/app.actions';
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "myworkspace";
-
-  constructor(private store: Store<AppState>) {
-    this.store.dispatch(new LoadApp());
-  }
 }

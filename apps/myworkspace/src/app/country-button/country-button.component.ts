@@ -4,7 +4,7 @@ import { Country } from '../countries.interface';
 import { CountryDialogComponent } from 'apps/myworkspace/src/app/country-dialog/country-dialog.component';
 
 @Component({
-  selector: 'app-country-button',
+  selector: 'myworkspace-country-button',
   templateUrl: './country-button.component.html',
   styleUrls: ['./country-button.component.css']
 })
@@ -20,7 +20,6 @@ export class CountryButtonComponent implements OnInit {
   }
 
   openDialog() {
-
     this.countryDialogRef = this.dialog.open(CountryDialogComponent, { data: this.country });
   }
 

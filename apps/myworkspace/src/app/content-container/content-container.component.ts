@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Country } from '../countries.interface';
 import { Store, select } from '@ngrx/store';
+import { LoadApp } from '../+state/app.actions';
 
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
@@ -12,14 +14,15 @@ export interface CountryInfo {
 }
 
 @Component({
-  selector: 'app-content-container',
+  selector: 'myworkspace-content-container',
   templateUrl: './content-container.component.html',
   styleUrls: ['./content-container.component.css']
 })
 export class ContentContainerComponent {
+  countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
 
-  countries$ = this.store.pipe(select(appQuery.getAllApp))
-  .pipe(map((countryList: Country[]) => {
+  countryInfoList$: Observable<CountryInfo[]> = this.countries$
+    .pipe(map((countryList: Country[]) => {
       const letters: string[] = [];
 
       for (const country of countryList) {
@@ -34,7 +37,7 @@ export class ContentContainerComponent {
       for (const letter of sortedLetters) {
 
         const lettersCountries: CountryInfo = {
-          letter: '{letter}',
+          letter: letter,
           countyList: []
         };
 
@@ -49,7 +52,9 @@ export class ContentContainerComponent {
 
       return result;
     }
-  ));
+    ));
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(new LoadApp());
+  }
 }
