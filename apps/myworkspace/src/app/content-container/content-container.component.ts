@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { AppService } from '../app.service';
 import { Country } from '../countries.interface';
-import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+
+import { AppState } from '../+state/app.reducer';
+import { appQuery } from '../+state/app.selectors';
 import { map } from 'rxjs/operators';
 
 export interface CountryInfo {
@@ -16,8 +18,8 @@ export interface CountryInfo {
 })
 export class ContentContainerComponent {
 
-  countryInfoList$: Observable<CountryInfo[]> = this.countriesService.getAll()
-    .pipe(map((countryList: Country[]) => {
+  countries$ = this.store.pipe(select(appQuery.getAllApp))
+  .pipe(map((countryList: Country[]) => {
       const letters: string[] = [];
 
       for (const country of countryList) {
@@ -49,5 +51,5 @@ export class ContentContainerComponent {
     }
   ));
 
-  constructor(private countriesService: AppService) { }
+  constructor(private store: Store<AppState>) { }
 }

@@ -1,0 +1,18 @@
+.mat-card{
+  background-color: #d6ecd2;
+  border: 2px solid #1d1919;
+  display: inline-block;
+  height: 25px;
+  text-align: center;
+  font-family: 'Helvetica', serif;
+  font-size: 20px;
+  margin: 15px;
+  width: auto;
+}
+
+.images {
+  padding-left: 10px;
+  float: right;
+  height: 20px;
+  width: 40px;
+}

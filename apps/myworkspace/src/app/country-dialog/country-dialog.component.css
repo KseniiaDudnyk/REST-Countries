@@ -1,0 +1,12 @@
+.dialog-title {
+  font-family: 'Helvetica', serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content{
+  font-family: 'Helvetica', serif;
+  font-size: 30px;
+  padding: 45px;
+}

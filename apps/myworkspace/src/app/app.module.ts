@@ -1,11 +1,19 @@
 import { BrowserModule, } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'apps/myworkspace/src/app/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
+import { CountryButtonComponent } from './country-button/country-button.component';
+import { CountryDialogComponent } from './country-dialog/country-dialog.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { GetCountriesComponent } from './get-countries/get-countries.component';
+import { ContentContainerComponent } from './content-container/content-container.component';
 import {
   APP_FEATURE_KEY,
   initialState as appInitialState,
@@ -17,10 +25,29 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: ContentContainerComponent,
+    pathMatch: 'full'
+  }
+];
+
 @NgModule({
-  declarations: [AppComponent, GetCountriesComponent],
+  declarations: [
+    AppComponent,
+    ContentContainerComponent,
+    CountryButtonComponent,
+    CountryDialogComponent
+  ],
   imports: [
     BrowserModule,
+    MatCardModule,
+    MatDialogModule,
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
     HttpClientModule,
     NxModule.forRoot(),
     StoreModule.forRoot(
@@ -34,6 +61,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CountryDialogComponent]
 })
 export class AppModule {}

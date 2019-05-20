@@ -1,0 +1,19 @@
+<h1 class="dialog-title" mat-dialog-title >{{ country.name }} {{ country.alpha2Code }}, {{ country.alpha3Code }}</h1>
+
+<mat-dialog-content class="content">
+  <ul>
+    <li *ngIf="country.capital">Capital: {{ country.capital }}</li>
+    <li *ngIf="country.population">Population: {{ country.population }}</li>
+    <li>Languages:</li>
+    <ul>
+      <li *ngFor="let language of country.languages">{{ language.name }}</li>
+    </ul>
+    <li>Currency:</li>
+    <ul>
+      <li *ngFor="let currency of country.currencies">{{ currency.name }} {{ currency.symbol}}</li>
+    </ul>
+    <li *ngIf="country.region">Region: {{ country.region }}</li>
+    <li *ngIf="country.subregion">Subregion: {{ country.subregion }}</li>
+    <li *ngIf="country.borders.length">Borders: {{ country.borders }}</li>
+  </ul>
+</mat-dialog-content>
