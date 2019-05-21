@@ -25,6 +25,7 @@ import { NxModule } from '@nrwl/nx';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { CountryToolbarComponent } from './country-toolbar/country-toolbar.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,8 @@ const routes: Routes = [
     AppComponent,
     ContentContainerComponent,
     CountryButtonComponent,
-    CountryDialogComponent
+    CountryDialogComponent,
+    CountryToolbarComponent
   ],
   imports: [
     BrowserModule,
