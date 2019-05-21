@@ -10,6 +10,7 @@ import { CountryDialogComponent } from './country-dialog/country-dialog.componen
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
@@ -47,6 +48,7 @@ const routes: Routes = [
     BrowserModule,
     MatCardModule,
     MatDialogModule,
+    MatToolbarModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
