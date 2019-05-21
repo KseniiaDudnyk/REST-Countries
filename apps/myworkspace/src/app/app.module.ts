@@ -7,9 +7,11 @@ import { AppRoutingModule } from 'apps/myworkspace/src/app/app-routing/app-routi
 import { AppComponent } from './app.component';
 import { CountryButtonComponent } from './country-button/country-button.component';
 import { CountryDialogComponent } from './country-dialog/country-dialog.component';
+import { ContentContainerComponent } from './content-container/content-container.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { ContentContainerComponent } from './content-container/content-container.component';
 import {
   APP_FEATURE_KEY,
   initialState as appInitialState,
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: '',
     component: ContentContainerComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'common-languages',
+    component: CommonLanguagesComponent,
     pathMatch: 'full'
   }
 ];
@@ -54,6 +60,7 @@ const routes: Routes = [
     MatDialogModule,
     MatToolbarModule,
     MatMenuModule,
+    MatTableModule,
     MatIconModule,
     AppRoutingModule,
     HttpClientModule,
