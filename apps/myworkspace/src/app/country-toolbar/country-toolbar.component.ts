@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'myworkspace-country-toolbar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountryToolbarComponent implements OnInit {
 
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  someMethod() {
+    this.trigger.openMenu();
   }
 
 }
