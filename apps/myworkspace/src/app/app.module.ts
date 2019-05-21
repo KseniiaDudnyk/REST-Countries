@@ -29,6 +29,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { CountryToolbarComponent } from './country-toolbar/country-toolbar.component';
+import { CommonLanguagesComponent } from './common-languages/common-languages.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
     ContentContainerComponent,
     CountryButtonComponent,
     CountryDialogComponent,
-    CountryToolbarComponent
+    CountryToolbarComponent,
+    CommonLanguagesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetCountriesComponent } from './get-countries.component';
+import { CommonLanguagesComponent } from './common-languages.component';
 
-describe('GetCountriesComponent', () => {
-  let component: GetCountriesComponent;
-  let fixture: ComponentFixture<GetCountriesComponent>;
+describe('CommonLanguagesComponent', () => {
+  let component: CommonLanguagesComponent;
+  let fixture: ComponentFixture<CommonLanguagesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GetCountriesComponent ]
+      declarations: [ CommonLanguagesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetCountriesComponent);
+    fixture = TestBed.createComponent(CommonLanguagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

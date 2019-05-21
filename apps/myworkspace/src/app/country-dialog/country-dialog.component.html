@@ -10,7 +10,7 @@
     </ul>
     <li>Currency:</li>
     <ul>
-      <li *ngFor="let currency of country.currencies">{{ currency.name }} {{ currency.symbol}}</li>
+      <li *ngFor="let currency of country.currencies">{{ currency.name }} ({{ currency.symbol}})</li>
     </ul>
     <li *ngIf="country.region">Region: {{ country.region }}</li>
     <li *ngIf="country.subregion">Subregion: {{ country.subregion }}</li>
