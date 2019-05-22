@@ -33,6 +33,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { CountryToolbarComponent } from './country-toolbar/country-toolbar.component';
 import { CommonLanguagesComponent } from './common-languages/common-languages.component';
 import { CallingCodesComponent } from './calling-codes/calling-codes.component';
+import { TimeZoneComponent } from './time-zone/time-zone.component';
 
 const routes: Routes = [
   {
@@ -60,7 +61,8 @@ const routes: Routes = [
     CountryDialogComponent,
     CountryToolbarComponent,
     CommonLanguagesComponent,
-    CallingCodesComponent
+    CallingCodesComponent,
+    TimeZoneComponent
   ],
   imports: [
     BrowserModule,
