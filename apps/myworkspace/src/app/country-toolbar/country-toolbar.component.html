@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
   <mat-menu #appMenu="matMenu">
-    <button mat-menu-item routerLink="/">Main Page</button>
+    <button mat-menu-item routerLink="/" routerLinkActive="active">Main Page</button>
     <button mat-menu-item routerLink="/common-languages"  routerLinkActive="active">Countries with Common Languages</button>
     <button mat-menu-item routerLink="/calling-codes"  routerLinkActive="active">Countries Calling-Codes</button>
     <button mat-menu-item routerLink="/time-zone"  routerLinkActive="active">Time-Zone Map</button>
@@ -10,6 +10,6 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <span class="toolbar-title">Countries</span>
+  <span class="toolbar-title" routerLink="/" routerLinkActive="active">Countries</span>
 
 </mat-toolbar>

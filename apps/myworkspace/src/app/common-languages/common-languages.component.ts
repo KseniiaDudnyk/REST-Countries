@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material';
 import { Country } from '../countries.interface';
+import { CommonLanguage } from './common-languages.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,11 +10,6 @@ import { LoadApp } from '../+state/app.actions';
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
 
-
-export interface CommonLanguage {
-  language: string;
-  countriesList: string[];
-}
 
 @Component({
   selector: 'myworkspace-common-languages',

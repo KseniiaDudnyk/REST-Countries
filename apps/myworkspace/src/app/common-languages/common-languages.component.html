@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="countriesList$" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="languageName">
   <th mat-header-cell *matHeaderCellDef mat-sort-header> Language </th>
-  <td mat-cell *matCellDef="let countryList"> {{ countryList.language }}</td>
+  <td class="language" mat-cell *matCellDef="let countryList"> {{ countryList.language }}</td>
   </ng-container>
 
   <ng-container matColumnDef="countries">

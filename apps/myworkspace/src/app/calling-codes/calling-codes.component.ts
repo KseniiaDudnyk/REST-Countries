@@ -16,6 +16,8 @@ import { appQuery } from '../+state/app.selectors';
 })
 
 export class CallingCodesComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
+
   columnsToDisplay = ['countryName', 'calling-codes'];
 
   countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
@@ -32,5 +34,4 @@ export class CallingCodesComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

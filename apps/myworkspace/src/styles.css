@@ -2,5 +2,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
+  background-image: url("images/picture.jpg");
   margin: 0;
 }
