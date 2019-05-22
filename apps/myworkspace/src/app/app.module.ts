@@ -32,6 +32,7 @@ import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { CountryToolbarComponent } from './country-toolbar/country-toolbar.component';
 import { CommonLanguagesComponent } from './common-languages/common-languages.component';
+import { CallingCodesComponent } from './calling-codes/calling-codes.component';
 
 const routes: Routes = [
   {
@@ -53,7 +54,8 @@ const routes: Routes = [
     CountryButtonComponent,
     CountryDialogComponent,
     CountryToolbarComponent,
-    CommonLanguagesComponent
+    CommonLanguagesComponent,
+    CallingCodesComponent
   ],
   imports: [
     BrowserModule,
