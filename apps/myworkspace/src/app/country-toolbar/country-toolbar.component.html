@@ -2,8 +2,8 @@
   <mat-menu #appMenu="matMenu">
     <button mat-menu-item routerLink="/">Main Page</button>
     <button mat-menu-item routerLink="/common-languages"  routerLinkActive="active">Countries with Common Languages</button>
-    <button mat-menu-item>Countries Calling-Codes</button>
-    <button mat-menu-item>Time-Zone Map</button>
+    <button mat-menu-item routerLink="/calling-codes"  routerLinkActive="active">Countries Calling-Codes</button>
+    <button mat-menu-item routerLink="/time-zone"  routerLinkActive="active">Time-Zone Map</button>
   </mat-menu>
 
   <button mat-icon-button [matMenuTriggerFor]="appMenu">

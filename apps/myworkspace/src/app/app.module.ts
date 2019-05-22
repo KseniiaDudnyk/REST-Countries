@@ -43,7 +43,12 @@ const routes: Routes = [
   {
     path: 'common-languages',
     component: CommonLanguagesComponent,
-    pathMatch: 'full'    
+    pathMatch: 'full'
+  },
+  {
+    path:'calling-codes',
+    component: CallingCodesComponent,
+    pathMatch: 'full'
   }
 ];
 
