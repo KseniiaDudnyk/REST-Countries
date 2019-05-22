@@ -10,6 +10,7 @@ import { CountryDialogComponent } from './country-dialog/country-dialog.componen
 import { ContentContainerComponent } from './content-container/content-container.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -41,7 +42,7 @@ const routes: Routes = [
   {
     path: 'common-languages',
     component: CommonLanguagesComponent,
-    pathMatch: 'full'
+    pathMatch: 'full'    
   }
 ];
 
@@ -60,6 +61,7 @@ const routes: Routes = [
     MatDialogModule,
     MatToolbarModule,
     MatMenuModule,
+    MatSortModule,
     MatTableModule,
     MatIconModule,
     AppRoutingModule,

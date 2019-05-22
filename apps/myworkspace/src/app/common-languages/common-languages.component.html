@@ -1,6 +1,6 @@
-<table mat-table [dataSource]="countriesList$">
+<table mat-table [dataSource]="countriesList$" matSort>
   <ng-container matColumnDef="languageName">
-  <th mat-header-cell *matHeaderCellDef> Language </th>
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Language </th>
   <td mat-cell *matCellDef="let countryList"> {{ countryList.language }}</td>
   </ng-container>
 

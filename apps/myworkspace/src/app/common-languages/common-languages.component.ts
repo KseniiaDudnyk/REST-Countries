@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material';
 import { Country } from '../countries.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -20,32 +21,34 @@ export interface CommonLanguage {
   styleUrls: ['./common-languages.component.css']
 })
 export class CommonLanguagesComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
+
   columnsToDisplay = ['languageName', 'countries'];
 
   countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
 
   countriesList$: Observable<CommonLanguage[]> = this.countries$
-  .pipe(map((countriesList: Country[]) => {
-    const languageDict: { [language: string]: string[] } = {};
+    .pipe(map((countriesList: Country[]) => {
+      const languageDict: { [language: string]: string[] } = {};
 
-    for (const country of countriesList) {
-      for (const language of country.languages) {
-        if (!languageDict[language.name]) {
-          languageDict[language.name] = [country.name];
-        } else {
-          languageDict[language.name].push(country.name);
+      for (const country of countriesList) {
+        for (const language of country.languages) {
+          if (!languageDict[language.name]) {
+            languageDict[language.name] = [country.name];
+          } else {
+            languageDict[language.name].push(country.name);
+          }
         }
       }
-    }
-    const languageList: CommonLanguage[] = [];
+      const languageList: CommonLanguage[] = [];
 
-    for (const language of Object.keys(languageDict)) {
-      languageList.push({
-        language,
-        countriesList: languageDict[language]
-      });
-    }
-    return languageList;
+      for (const language of Object.keys(languageDict)) {
+        languageList.push({
+          language,
+          countriesList: languageDict[language]
+        });
+      }
+      return languageList;
     }));
 
   constructor(private store: Store<AppState>) {
@@ -53,7 +56,5 @@ export class CommonLanguagesComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
-
 }
