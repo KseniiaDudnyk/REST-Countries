@@ -22,17 +22,15 @@ export class CallingCodesComponent implements OnInit {
 
   callingCodes$: Observable<Country[]> = this.countries$
     .pipe(map((countries: Country[]) => {
-    return countries;
+      return countries;
     }));
-
-  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private store: Store<AppState>) {
     this.store.dispatch(new LoadApp());
   }
 
   ngOnInit() {
-    
+
   }
 
 }

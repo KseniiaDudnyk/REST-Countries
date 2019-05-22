@@ -1,7 +1,7 @@
-<table mat-table [dataSource]="callingCodes$" matSort>
+<table mat-table [dataSource]="callingCodes$" matSort (matSortChange)="sortData($event)">
   <ng-container matColumnDef="countryName">
   <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
-  <td mat-cell *matCellDef="let countries"> {{ countries.name }}</td>
+  <td class = "cell" mat-cell *matCellDef="let countries"> {{ countries.name }}</td>
   </ng-container>
 
   <ng-container matColumnDef="calling-codes">

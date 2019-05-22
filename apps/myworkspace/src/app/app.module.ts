@@ -50,6 +50,11 @@ const routes: Routes = [
     path:'calling-codes',
     component: CallingCodesComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'time-zone',
+    component: TimeZoneComponent,
+    pathMatch: 'full'
   }
 ];
 
