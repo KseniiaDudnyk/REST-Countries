@@ -1,4 +1,9 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Language, Country">
+</mat-form-field>
+
+<table align="center" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
     <td mat-cell class="cell" *matCellDef="let country"> {{ country.name }}</td>

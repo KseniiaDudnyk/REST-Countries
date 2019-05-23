@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -77,6 +78,7 @@ const routes: Routes = [
     MatMenuModule,
     MatSortModule,
     MatTableModule,
+    MatInputModule,
     MatIconModule,
     AppRoutingModule,
     HttpClientModule,
