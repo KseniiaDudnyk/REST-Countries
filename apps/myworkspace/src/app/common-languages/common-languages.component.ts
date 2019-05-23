@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material';
+import { MatSort, MatTableDataSource } from '@angular/material';
 import { Country } from '../countries.interface';
 import { CommonLanguage } from './common-languages.interface';
 import { Observable } from 'rxjs';
@@ -19,7 +19,11 @@ import { appQuery } from '../+state/app.selectors';
 export class CommonLanguagesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
-  columnsToDisplay = ['languageName', 'countries'];
+  languages: CommonLanguage[] = [];
+
+  dataSource = new MatTableDataSource();
+
+  columnsToDisplay = ['language', 'countriesList'];
 
   countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
 
@@ -44,7 +48,8 @@ export class CommonLanguagesComponent implements OnInit {
           countriesList: languageDict[language]
         });
       }
-      return languageList;
+      this.languages = languageList;
+      return this.languages;
     }));
 
   constructor(private store: Store<AppState>) {
@@ -52,5 +57,7 @@ export class CommonLanguagesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataSource = new MatTableDataSource(this.languages);
+    this.dataSource.sort = this.sort;
   }
 }

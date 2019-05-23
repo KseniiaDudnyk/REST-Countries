@@ -9,6 +9,11 @@ import { LoadApp } from '../+state/app.actions';
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
 
+export interface CallingCodes {
+  name: string,
+  codes: string[]
+}
+
 @Component({
   selector: 'myworkspace-calling-codes',
   templateUrl: './calling-codes.component.html',
@@ -18,13 +23,20 @@ import { appQuery } from '../+state/app.selectors';
 export class CallingCodesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
-  columnsToDisplay = ['countryName', 'calling-codes'];
+  countriesList: Country[] = [];
+
+  codesArr: CallingCodes[] = [];
+
+  dataSource = new MatTableDataSource();
+
+  columnsToDisplay: string[] = ['name', 'codes'];
 
   countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
 
   callingCodes$: Observable<Country[]> = this.countries$
     .pipe(map((countries: Country[]) => {
-      return countries;
+      this.countriesList = countries;
+      return this.countriesList;
     }));
 
   constructor(private store: Store<AppState>) {
@@ -32,6 +44,28 @@ export class CallingCodesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.pipe(select(appQuery.getAllApp)).subscribe(arr => {
+      this.countriesList = arr;
 
+      const codesArr: CallingCodes[] = [];
+
+      for (const country of this.countriesList) {
+
+        const codesList: CallingCodes = {
+          name: country.name,
+          codes: []
+        };
+
+        const codes = country.callingCodes[0].replace(' ', '');
+        codesList.codes.push(codes);
+        codesArr.push(codesList);
+      }
+
+      this.codesArr = codesArr;
+
+      this.dataSource = new MatTableDataSource(this.codesArr);
+      this.dataSource.sort = this.sort;
+    });
   }
+
 }

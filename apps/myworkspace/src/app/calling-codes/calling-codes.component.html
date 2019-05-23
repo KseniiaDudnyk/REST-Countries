@@ -1,15 +1,15 @@
-<table align="center" mat-table [dataSource]="countries$" matSort class="mat-elevation-z8">
-  <ng-container matColumnDef="countryName">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
-  <td class = "cell" mat-cell *matCellDef="let countries"> {{ countries.name }}</td>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+    <td mat-cell class="cell" *matCellDef="let country"> {{ country.name }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="calling-codes">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> Calling-Codes </th>
-  <td mat-cell *matCellDef="let countries"> {{ countries.callingCodes }}</td>
+  <ng-container matColumnDef="codes">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Calling-Codes </th>
+    <td mat-cell *matCellDef="let country"> {{ country.codes }}</td>
   </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
 </table>
