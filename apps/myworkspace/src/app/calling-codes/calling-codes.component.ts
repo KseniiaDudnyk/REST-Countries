@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { Country } from '../countries.interface';
+import { CallingCodes } from './calling-codes.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -8,11 +9,6 @@ import { Store, select } from '@ngrx/store';
 import { LoadApp } from '../+state/app.actions';
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
-
-export interface CallingCodes {
-  name: string,
-  codes: string[]
-}
 
 @Component({
   selector: 'myworkspace-calling-codes',
