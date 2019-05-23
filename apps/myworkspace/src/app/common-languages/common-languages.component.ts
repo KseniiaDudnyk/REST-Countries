@@ -48,8 +48,7 @@ export class CommonLanguagesComponent implements OnInit {
           countriesList: languageDict[language]
         });
       }
-      this.languages = languageList;
-      return this.languages;
+      return languageList;
     }));
 
   constructor(private store: Store<AppState>) {
@@ -57,7 +56,12 @@ export class CommonLanguagesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.languages);
-    this.dataSource.sort = this.sort;
+    this.countriesList$.subscribe((result: CommonLanguage[]) => {
+      this.languages = result;
+
+      this.dataSource = new MatTableDataSource(this.languages);
+      this.dataSource.sort = this.sort;
+    });
+
   }
 }
