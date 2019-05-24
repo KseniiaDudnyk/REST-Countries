@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { Country } from '../countries.interface';
 import { CommonLanguage } from './common-languages.interface';
@@ -15,18 +15,16 @@ import { appQuery } from '../+state/app.selectors';
   templateUrl: './common-languages.component.html',
   styleUrls: ['./common-languages.component.css']
 })
-export class CommonLanguagesComponent implements OnInit {
+export class CommonLanguagesComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
-
-  languages: CommonLanguage[] = [];
 
   dataSource = new MatTableDataSource();
 
   columnsToDisplay = ['language', 'countriesList'];
 
-  countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
+  subscription: any;
 
-  countriesList$: Observable<CommonLanguage[]> = this.countries$
+  private languagesAndCountries$: Observable<CommonLanguage[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countriesList: Country[]) => {
       const languageDict: { [language: string]: string[] } = {};
 
@@ -55,15 +53,19 @@ export class CommonLanguagesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.countriesList$.subscribe((result: CommonLanguage[]) => {
-      this.languages = result;
+    this.subscription = this.languagesAndCountries$.subscribe((result: CommonLanguage[]) => {
+      const languagesArr: CommonLanguage[] = result;
 
-      this.dataSource = new MatTableDataSource(this.languages);
+      this.dataSource = new MatTableDataSource(languagesArr);
       this.dataSource.sort = this.sort;
     });
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

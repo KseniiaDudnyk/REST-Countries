@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { Country } from '../countries.interface';
 import { CallingCodes } from './calling-codes.interface';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../+state/app.reducer';
@@ -15,10 +13,8 @@ import { appQuery } from '../+state/app.selectors';
   styleUrls: ['./calling-codes.component.css']
 })
 
-export class CallingCodesComponent implements OnInit {
+export class CallingCodesComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
-
-  countriesList: Country[] = [];
 
   codesArr: CallingCodes[] = [];
 
@@ -26,13 +22,7 @@ export class CallingCodesComponent implements OnInit {
 
   columnsToDisplay: string[] = ['name', 'codes'];
 
-  countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
-
-  callingCodes$: Observable<Country[]> = this.countries$
-    .pipe(map((countries: Country[]) => {
-      this.countriesList = countries;
-      return this.countriesList;
-    }));
+  subscription: any;
 
   constructor(private store: Store<AppState>) {
 
@@ -40,11 +30,11 @@ export class CallingCodesComponent implements OnInit {
 
   ngOnInit() {
     this.store.pipe(select(appQuery.getAllApp)).subscribe(arr => {
-      this.countriesList = arr;
+      const countriesArr:Country[] = arr;
 
       const codesArr: CallingCodes[] = [];
 
-      for (const country of this.countriesList) {
+      for (const country of countriesArr) {
 
         const codesList: CallingCodes = {
           name: country.name,
@@ -65,6 +55,10 @@ export class CallingCodesComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
