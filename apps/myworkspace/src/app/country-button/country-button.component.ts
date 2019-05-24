@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Country } from '../countries.interface';
-import { CountryDialogComponent } from 'apps/myworkspace/src/app/country-dialog/country-dialog.component';
+import { CountryDialogComponent } from '../country-dialog/country-dialog.component';
 
 @Component({
   selector: 'myworkspace-country-button',

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
-import { AppRoutingModule } from 'apps/myworkspace/src/app/app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { CountryButtonComponent } from './country-button/country-button.component';
 import { CountryDialogComponent } from './country-dialog/country-dialog.component';

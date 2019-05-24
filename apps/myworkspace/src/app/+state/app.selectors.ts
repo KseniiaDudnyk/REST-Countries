@@ -1,10 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { APP_FEATURE_KEY, AppState } from './app.reducer';
 
-import * as fromRoot from 'apps/myworkspace/src/app/+state/app.reducer';
-
 // Lookup the 'App' feature state managed by NgRx
-const getAppState = createFeatureSelector<fromRoot.AppState>(APP_FEATURE_KEY);
+const getAppState = createFeatureSelector<AppState>(APP_FEATURE_KEY);
 
 const getLoaded = createSelector(
   getAppState,

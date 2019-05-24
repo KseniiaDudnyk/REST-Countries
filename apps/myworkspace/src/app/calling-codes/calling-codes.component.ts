@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Store, select } from '@ngrx/store';
-import { LoadApp } from '../+state/app.actions';
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
 
@@ -36,7 +35,7 @@ export class CallingCodesComponent implements OnInit {
     }));
 
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(new LoadApp());
+
   }
 
   ngOnInit() {

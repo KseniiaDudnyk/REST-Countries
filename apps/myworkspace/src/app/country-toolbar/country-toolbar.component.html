@@ -1,15 +1,15 @@
 <mat-toolbar class="toolbar">
-  <mat-menu #appMenu="matMenu">
+  <mat-menu #belowMenu="matMenu" yPosition="below">
     <button mat-menu-item routerLink="/" routerLinkActive="active">Main Page</button>
-    <button mat-menu-item routerLink="/common-languages"  routerLinkActive="active">Countries with Common Languages</button>
-    <button mat-menu-item routerLink="/calling-codes"  routerLinkActive="active">Countries Calling-Codes</button>
-    <button mat-menu-item routerLink="/time-zone"  routerLinkActive="active">Time-Zone Map</button>
+    <button mat-menu-item routerLink="/common-languages" routerLinkActive="active">Countries with Common Languages</button>
+    <button mat-menu-item routerLink="/calling-codes" routerLinkActive="active">Countries Calling-Codes</button>
+    <button mat-menu-item routerLink="/time-zone" routerLinkActive="active">Time-Zone Map</button>
   </mat-menu>
 
-  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <button mat-icon-button [matMenuTriggerFor]="belowMenu">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <span class="toolbar-title" routerLink="/" routerLinkActive="active">Countries</span>
+  <span routerLink="/" routerLinkActive="active">Countries</span>
 
 </mat-toolbar>

@@ -1,9 +1,15 @@
-.toolbar {
-  background: none;
-  font-size: 40px;
-  background-color: #eeeeee;
+/* .mat-icon-button {
+  position: absolute;
+  left: 15px;
+} */
+
+span {
+  cursor: pointer;
 }
 
-.toolbar-title {
-  padding-left: 43%;
+.toolbar {
+  background: none;
+  background-color: #eeeeee;
+  font-size: 40px;
+  justify-content: center;
 }

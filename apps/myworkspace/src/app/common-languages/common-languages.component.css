@@ -1,7 +1,7 @@
 mat-form-field {
+  background-color: #eeeeee;
   font-size: 14px;
   width: 100%;
-  background-color: #eeeeee;
 }
 
 .mat-cell {
@@ -11,6 +11,10 @@ mat-form-field {
 
 .mat-header-cell {
   font-size: 20px;
+}
+
+.mat-table {
+  margin-top: 10px;
 }
 
 .language {

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from '../countries.interface';
 import { Store, select } from '@ngrx/store';
-import { LoadApp } from '../+state/app.actions';
 
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
@@ -55,6 +54,6 @@ export class ContentContainerComponent {
     ));
 
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(new LoadApp());
+
   }
 }
