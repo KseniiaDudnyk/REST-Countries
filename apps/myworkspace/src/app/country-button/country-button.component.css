@@ -1,6 +1,7 @@
-.mat-card{
+.mat-card {
   background-color: #d6ecd2;
   border: 2px solid #1d1919;
+  cursor: pointer;
   display: inline-block;
   height: 25px;
   text-align: center;
@@ -8,6 +9,10 @@
   font-size: 20px;
   margin: 15px;
   width: auto;
+}
+
+.mat-card:hover {
+  background-color: #f3c1c6;
 }
 
 .images {
