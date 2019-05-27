@@ -1,32 +1,90 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../countries.interface';
+import { TimeZone } from './time-zone.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Store, select } from '@ngrx/store';
-import { LoadApp } from '../+state/app.actions';
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
+
 
 @Component({
   selector: 'myworkspace-time-zone',
   templateUrl: './time-zone.component.html',
   styleUrls: ['./time-zone.component.css']
 })
-export class TimeZoneComponent implements OnInit {
-  countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
 
-  callingCodes$: Observable<Country[]> = this.countries$
+export class TimeZoneComponent implements OnInit {
+
+  displayedColumns: string[] = ['timezone', 'countriesList'];
+
+  callingCodes$: Observable<TimeZone[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countries: Country[]) => {
-      return countries;
+      const timezoneDict: { [timezone: string]: string[] } = {};
+
+      for (const country of countries) {
+        for (const timezone of country.timezones) {
+          if (!timezoneDict[timezone]) {
+            timezoneDict[timezone] = [country.name];
+          } else {
+            timezoneDict[timezone].push(country.name);
+          }
+        }
+      }
+
+      const timezoneArr: TimeZone[] = [];
+
+      for (const timezone of Object.keys(timezoneDict)) {
+        timezoneArr.push({
+          timezone,
+          countriesList: timezoneDict[timezone]
+        });
+      }
+
+      timezoneArr.sort((tz1: TimeZone, tz2: TimeZone) => {
+        const t1 = tz1.timezone;
+        const t2 = tz2.timezone;
+        if (t1[3] === t2[3]) {
+          if (t1[3] === '+') {
+            if (t1 < t2) {
+              return 1;
+            }
+
+            return -1;
+          } else {
+            if (t1 < t2) {
+              return -1;
+            }
+
+            return 1;
+          }
+        } else {
+          if (t1[3] === '+') {
+            return -1;
+          }
+
+          if (t1[3] === '-') {
+            return 1;
+          }
+
+          if (!t1[3] && t2[3] === '+') {
+            return -1;
+          }
+
+          return 1;
+        }
+      });
+
+      return timezoneArr;
+
     }));
 
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(new LoadApp());
+
   }
 
   ngOnInit() {
 
   }
-
 }

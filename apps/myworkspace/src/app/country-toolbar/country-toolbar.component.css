@@ -1,15 +1,11 @@
-/* .mat-icon-button {
-  position: absolute;
-  left: 15px;
-} */
-
 span {
   cursor: pointer;
+  position: absolute;
+  right: 50%;
 }
 
 .toolbar {
   background: none;
   background-color: #eeeeee;
   font-size: 40px;
-  justify-content: center;
 }
