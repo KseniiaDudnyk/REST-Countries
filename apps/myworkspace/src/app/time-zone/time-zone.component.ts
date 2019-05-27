@@ -17,8 +17,6 @@ import { appQuery } from '../+state/app.selectors';
 
 export class TimeZoneComponent implements OnInit {
 
-  displayedColumns: string[] = ['timezone', 'countriesList'];
-
   callingCodes$: Observable<TimeZone[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countries: Country[]) => {
       const timezoneDict: { [timezone: string]: string[] } = {};

@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from '../countries.interface';
+import { CountryInfo } from './country-info.interface';
 import { Store, select } from '@ngrx/store';
 
 import { AppState } from '../+state/app.reducer';
 import { appQuery } from '../+state/app.selectors';
 import { map } from 'rxjs/operators';
-
-export interface CountryInfo {
-  letter: string;
-  countyList: Country[];
-}
 
 @Component({
   selector: 'myworkspace-content-container',
@@ -18,9 +14,8 @@ export interface CountryInfo {
   styleUrls: ['./content-container.component.css']
 })
 export class ContentContainerComponent {
-  countries$: Observable<Country[]> = this.store.pipe(select(appQuery.getAllApp));
 
-  countryInfoList$: Observable<CountryInfo[]> = this.countries$
+  countryInfoList$: Observable<CountryInfo[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countryList: Country[]) => {
       const letters: string[] = [];
 
