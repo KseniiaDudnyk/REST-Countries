@@ -1,10 +1,10 @@
-<table>
+<table *ngIf="(callingCodes$ | async) as callingCodes">
   <tr>
-    <th *ngFor="let timezone of callingCodes$ | async"> {{timezone.timezone}} </th>
+    <th *ngFor="let timezone of callingCodes"> {{timezone.timezone}} </th>
   </tr>
 
   <tr>
-    <td *ngFor="let timezone of callingCodes$ | async">
+    <td *ngFor="let timezone of callingCodes">
       <ng-container *ngFor="let country of timezone.countriesList">
         <myworkspace-country-button [country]="country">
 

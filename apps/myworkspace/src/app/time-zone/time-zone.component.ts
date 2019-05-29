@@ -19,14 +19,14 @@ export class TimeZoneComponent implements OnInit {
 
   callingCodes$: Observable<TimeZone[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countries: Country[]) => {
-      const timezoneDict: { [timezone: string]: string[] } = {};
+      const timezoneDict: { [timezone: string]: Country[] } = {};
 
       for (const country of countries) {
         for (const timezone of country.timezones) {
           if (!timezoneDict[timezone]) {
-            timezoneDict[timezone] = [country.name];
+            timezoneDict[timezone] = [country];
           } else {
-            timezoneDict[timezone].push(country.name);
+            timezoneDict[timezone].push(country);
           }
         }
       }
