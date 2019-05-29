@@ -29,7 +29,7 @@ export class CallingCodesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.store.pipe(select(appQuery.getAllApp)).subscribe(arr => {
+    this.subscription = this.store.pipe(select(appQuery.getAllApp)).subscribe(arr => {
       const countriesArr:Country[] = arr;
 
       const codesArr: CallingCodes[] = [];

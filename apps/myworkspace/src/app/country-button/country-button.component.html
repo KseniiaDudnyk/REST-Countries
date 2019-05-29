@@ -1,8 +1,8 @@
 <mat-card (click)="openDialog()">
 
 <div>
-  {{ country.name }}
-  <img class="images" src={{country.flag}} alt="country-flag">
+<ng-container *ngIf="showName"> {{ country.name }} </ng-container>
+  <img class="images" [src]="country.flag" alt="country-flag">
 </div>
 
 </mat-card>

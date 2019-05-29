@@ -6,7 +6,7 @@
   <tr>
     <td *ngFor="let timezone of callingCodes">
       <ng-container *ngFor="let country of timezone.countriesList">
-        <myworkspace-country-button [country]="country">
+        <myworkspace-country-button [showName]="false" [country]="country">
 
         </myworkspace-country-button>
       </ng-container>

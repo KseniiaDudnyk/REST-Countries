@@ -16,7 +16,6 @@ import { appQuery } from '../+state/app.selectors';
 })
 
 export class TimeZoneComponent implements OnInit {
-
   callingCodes$: Observable<TimeZone[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countries: Country[]) => {
       const timezoneDict: { [timezone: string]: Country[] } = {};
@@ -46,31 +45,31 @@ export class TimeZoneComponent implements OnInit {
         if (t1[3] === t2[3]) {
           if (t1[3] === '+') {
             if (t1 < t2) {
-              return 1;
-            }
-
-            return -1;
-          } else {
-            if (t1 < t2) {
               return -1;
             }
 
             return 1;
+          } else {
+            if (t1 < t2) {
+              return 1;
+            }
+
+            return -1;
           }
         } else {
           if (t1[3] === '+') {
-            return -1;
-          }
-
-          if (t1[3] === '-') {
             return 1;
           }
 
-          if (!t1[3] && t2[3] === '+') {
+          if (t1[3] === '-') {
             return -1;
           }
 
-          return 1;
+          if (!t1[3] && t2[3] === '+') {
+            return 1;
+          }
+
+          return -1;
         }
       });
 

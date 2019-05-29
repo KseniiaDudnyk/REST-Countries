@@ -14,6 +14,8 @@ export class CountryButtonComponent implements OnInit {
 
   @Input() country: Country[];
 
+  @Input() showName: boolean = true;
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
