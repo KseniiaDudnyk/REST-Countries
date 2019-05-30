@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'myworkspace-content-container',
   templateUrl: './content-container.component.html',
-  styleUrls: ['./content-container.component.css']
+  styleUrls: ['./content-container.component.scss']
 })
 export class ContentContainerComponent {
 

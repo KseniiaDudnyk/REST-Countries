@@ -13,7 +13,7 @@ import { appQuery } from '../+state/app.selectors';
 @Component({
   selector: 'myworkspace-common-languages',
   templateUrl: './common-languages.component.html',
-  styleUrls: ['./common-languages.component.css']
+  styleUrls: ['./common-languages.component.scss']
 })
 export class CommonLanguagesComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;

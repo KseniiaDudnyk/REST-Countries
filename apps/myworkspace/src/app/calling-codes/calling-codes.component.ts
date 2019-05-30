@@ -10,7 +10,7 @@ import { appQuery } from '../+state/app.selectors';
 @Component({
   selector: 'myworkspace-calling-codes',
   templateUrl: './calling-codes.component.html',
-  styleUrls: ['./calling-codes.component.css']
+  styleUrls: ['./calling-codes.component.scss']
 })
 
 export class CallingCodesComponent implements OnInit, OnDestroy {

@@ -1,11 +1,10 @@
-span {
+.title {
   cursor: pointer;
   position: absolute;
   right: 50%;
 }
 
-.toolbar {
-  background: none;
+.mat-toolbar {
   background-color: #eeeeee;
   font-size: 40px;
 }
