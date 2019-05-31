@@ -1,5 +1,9 @@
-body {
-  height: calc(100%-64px);
+@import './variables.scss';
+
+.content-wrapper {
+  height: calc(100% - #{$toolbar-height});
   width: 100%;
+  display: block;
+  box-sizing: border-box;
   overflow: auto;
 }

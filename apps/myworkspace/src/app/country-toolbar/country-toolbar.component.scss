@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .title {
   cursor: pointer;
   position: absolute;
@@ -7,4 +9,5 @@
 .mat-toolbar {
   background-color: #eeeeee;
   font-size: 40px;
+  height: $toolbar-height;
 }
