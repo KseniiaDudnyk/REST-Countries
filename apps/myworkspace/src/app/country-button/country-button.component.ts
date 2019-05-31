@@ -12,7 +12,7 @@ export class CountryButtonComponent implements OnInit {
 
   countryDialogRef: MatDialogRef<CountryDialogComponent>;
 
-  @Input() country: Country[];
+  @Input() country: Country;
 
   @Input() showName = true;
 

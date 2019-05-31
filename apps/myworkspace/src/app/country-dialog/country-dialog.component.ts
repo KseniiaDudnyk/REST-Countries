@@ -9,9 +9,9 @@ import { Country } from '../countries.interface';
 })
 export class CountryDialogComponent implements OnInit {
 
-  countries: Country[];
+  countries: Country;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public country: Country[]) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public country: Country) { }
 
   ngOnInit() {
 
