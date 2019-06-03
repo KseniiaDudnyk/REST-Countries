@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { Country } from '../countries.interface';
 import { CommonLanguage } from './common-languages.interface';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Store, select } from '@ngrx/store';
@@ -22,7 +22,7 @@ export class CommonLanguagesComponent implements OnInit, OnDestroy {
 
   columnsToDisplay = ['language', 'countriesList'];
 
-  subscription: any;
+  subscription: Subscription;
 
   private languagesAndCountries$: Observable<CommonLanguage[]> = this.store.pipe(select(appQuery.getAllApp))
     .pipe(map((countriesList: Country[]) => {
