@@ -22,7 +22,7 @@ export class CallingCodesComponent implements OnInit, OnDestroy {
 
   columnsToDisplay: string[] = ['name', 'codes'];
 
-  subscription: any;
+  subscription: Subscription;
 
   constructor(private store: Store<AppState>) {
 
