@@ -13,18 +13,6 @@ import {
 
 @Injectable()
 export class AppEffects {
-  // @Effect() loadApp$ = this.dataPersistence.fetch(AppActionTypes.LoadApp, {
-  //   run: (action: LoadApp, state: AppPartialState) => {
-  //     return this.countriesService.getAll.map((countryList) => countryList)
-  //     // Your custom REST 'load' logic goes here. For now just return an empty list...
-  //     return new AppLoaded([]);
-  //   },
-  //
-  //   onError: (action: LoadApp, error) => {
-  //     console.error('Error', error);
-  //     return new AppLoadError(error);
-  //   }
-  // });
 
   @Effect() loadApp$ = this.actions$.pipe(
     ofType(AppActionTypes.LoadApp),
@@ -38,7 +26,6 @@ export class AppEffects {
 
   constructor(
     private actions$: Actions,
-    // private dataPersistence: DataPersistence<AppPartialState>,
     private appService: AppService
   ) { }
 }
