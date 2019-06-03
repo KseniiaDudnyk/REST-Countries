@@ -5,13 +5,13 @@ import { Country } from '../countries.interface';
 @Component({
   selector: 'myworkspace-country-dialog',
   templateUrl: './country-dialog.component.html',
-  styleUrls: ['./country-dialog.component.css']
+  styleUrls: ['./country-dialog.component.scss']
 })
 export class CountryDialogComponent implements OnInit {
 
-  countries: Country[];
+  countries: Country;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public country: Country[]) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public country: Country) { }
 
   ngOnInit() {
 

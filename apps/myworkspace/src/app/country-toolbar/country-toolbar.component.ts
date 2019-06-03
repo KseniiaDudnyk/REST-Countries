@@ -4,7 +4,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 @Component({
   selector: 'myworkspace-country-toolbar',
   templateUrl: './country-toolbar.component.html',
-  styleUrls: ['./country-toolbar.component.css']
+  styleUrls: ['./country-toolbar.component.scss']
 })
 export class CountryToolbarComponent implements OnInit {
 

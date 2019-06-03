@@ -6,15 +6,15 @@ import { CountryDialogComponent } from '../country-dialog/country-dialog.compone
 @Component({
   selector: 'myworkspace-country-button',
   templateUrl: './country-button.component.html',
-  styleUrls: ['./country-button.component.css']
+  styleUrls: ['./country-button.component.scss']
 })
 export class CountryButtonComponent implements OnInit {
 
   countryDialogRef: MatDialogRef<CountryDialogComponent>;
 
-  @Input() country: Country[];
+  @Input() country: Country;
 
-  @Input() showName: boolean = true;
+  @Input() showName = true;
 
   constructor(private dialog: MatDialog) { }
 

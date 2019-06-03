@@ -12,7 +12,7 @@ import { appQuery } from '../+state/app.selectors';
 @Component({
   selector: 'myworkspace-time-zone',
   templateUrl: './time-zone.component.html',
-  styleUrls: ['./time-zone.component.css']
+  styleUrls: ['./time-zone.component.scss']
 })
 
 export class TimeZoneComponent implements OnInit {
